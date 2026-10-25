@@ -1,0 +1,1203 @@
+{
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "server/routes.go",
+      "physical_lines": 3216,
+      "code_lines": 2659,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/auth",
+        "github.com/ollama/ollama/discover",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/format",
+        "github.com/ollama/ollama/fs/gguf",
+        "github.com/ollama/ollama/internal/cloud",
+        "github.com/ollama/ollama/internal/proxy",
+        "github.com/ollama/ollama/llm",
+        "github.com/ollama/ollama/logutil",
+        "github.com/ollama/ollama/manifest",
+        "github.com/ollama/ollama/middleware",
+        "github.com/ollama/ollama/model/parsers",
+        "github.com/ollama/ollama/model/renderers",
+        "github.com/ollama/ollama/template",
+        "github.com/ollama/ollama/thinking",
+        "github.com/ollama/ollama/tools",
+        "github.com/ollama/ollama/types/errtypes",
+        "github.com/ollama/ollama/types/model",
+        "github.com/ollama/ollama/version"
+      ],
+      "functions": [
+        {
+          "name": "writeModelRefParseError",
+          "start": 66,
+          "end": 75,
+          "complexity": 3
+        },
+        {
+          "name": "shouldUseHarmony",
+          "start": 77,
+          "end": 87,
+          "complexity": 4
+        },
+        {
+          "name": "experimentEnabled",
+          "start": 89,
+          "end": 91,
+          "complexity": 1
+        },
+        {
+          "name": "init",
+          "start": 105,
+          "end": 118,
+          "complexity": 4
+        },
+        {
+          "name": "125:modelOptions",
+          "start": 125,
+          "end": 127,
+          "complexity": 1
+        },
+        {
+          "name": "129:modelOptionsWithEmbeddingBatchDefault",
+          "start": 129,
+          "end": 162,
+          "complexity": 11
+        },
+        {
+          "name": "shouldApplyEmbeddingBatchDefault",
+          "start": 164,
+          "end": 172,
+          "complexity": 6
+        },
+        {
+          "name": "hasOption",
+          "start": 174,
+          "end": 177,
+          "complexity": 1
+        },
+        {
+          "name": "usesAutomaticNumCtx",
+          "start": 179,
+          "end": 189,
+          "complexity": 4
+        },
+        {
+          "name": "usesAutomaticNumBatch",
+          "start": 191,
+          "end": 201,
+          "complexity": 4
+        },
+        {
+          "name": "205:scheduleRunner",
+          "start": 205,
+          "end": 240,
+          "complexity": 11
+        },
+        {
+          "name": "signinURL",
+          "start": 242,
+          "end": 251,
+          "complexity": 2
+        },
+        {
+          "name": "253:GenerateHandler",
+          "start": 253,
+          "end": 832,
+          "complexity": 139
+        },
+        {
+          "name": "834:EmbedHandler",
+          "start": 834,
+          "end": 1057,
+          "complexity": 49
+        },
+        {
+          "name": "normalize",
+          "start": 1059,
+          "end": 1073,
+          "complexity": 5
+        },
+        {
+          "name": "1075:EmbeddingsHandler",
+          "start": 1075,
+          "end": 1133,
+          "complexity": 10
+        },
+        {
+          "name": "1135:PullHandler",
+          "start": 1135,
+          "end": 1192,
+          "complexity": 8
+        },
+        {
+          "name": "1194:PushHandler",
+          "start": 1194,
+          "end": 1247,
+          "complexity": 9
+        },
+        {
+          "name": "getExistingName",
+          "start": 1253,
+          "end": 1276,
+          "complexity": 11
+        },
+        {
+          "name": "1278:DeleteHandler",
+          "start": 1278,
+          "end": 1329,
+          "complexity": 11
+        },
+        {
+          "name": "1331:ShowHandler",
+          "start": 1331,
+          "end": 1425,
+          "complexity": 25
+        },
+        {
+          "name": "GetModelInfo",
+          "start": 1427,
+          "end": 1638,
+          "complexity": 50
+        },
+        {
+          "name": "getModelData",
+          "start": 1640,
+          "end": 1655,
+          "complexity": 4
+        },
+        {
+          "name": "selectedModelTemplate",
+          "start": 1657,
+          "end": 1664,
+          "complexity": 4
+        },
+        {
+          "name": "1666:ListHandler",
+          "start": 1666,
+          "end": 1674,
+          "complexity": 2
+        },
+        {
+          "name": "1676:CopyHandler",
+          "start": 1676,
+          "end": 1713,
+          "complexity": 9
+        },
+        {
+          "name": "1715:HeadBlobHandler",
+          "start": 1715,
+          "end": 1731,
+          "complexity": 4
+        },
+        {
+          "name": "1733:CreateBlobHandler",
+          "start": 1733,
+          "end": 1764,
+          "complexity": 6
+        },
+        {
+          "name": "isLocalIP",
+          "start": 1766,
+          "end": 1785,
+          "complexity": 7
+        },
+        {
+          "name": "allowedHost",
+          "start": 1787,
+          "end": 1812,
+          "complexity": 7
+        },
+        {
+          "name": "allowedHostsMiddleware",
+          "start": 1814,
+          "end": 1850,
+          "complexity": 12
+        },
+        {
+          "name": "1852:GenerateRoutes",
+          "start": 1852,
+          "end": 1949,
+          "complexity": 2
+        },
+        {
+          "name": "1951:ModelRecommendationsExperimentalHandler",
+          "start": 1951,
+          "end": 1967,
+          "complexity": 4
+        },
+        {
+          "name": "Serve",
+          "start": 1969,
+          "end": 2091,
+          "complexity": 16
+        },
+        {
+          "name": "waitForStream",
+          "start": 2093,
+          "end": 2118,
+          "complexity": 6
+        },
+        {
+          "name": "streamResponse",
+          "start": 2120,
+          "end": 2167,
+          "complexity": 9
+        },
+        {
+          "name": "2169:StatusHandler",
+          "start": 2169,
+          "end": 2177,
+          "complexity": 1
+        },
+        {
+          "name": "2179:WebSearchExperimentalHandler",
+          "start": 2179,
+          "end": 2181,
+          "complexity": 1
+        },
+        {
+          "name": "2183:WebFetchExperimentalHandler",
+          "start": 2183,
+          "end": 2185,
+          "complexity": 1
+        },
+        {
+          "name": "2187:webExperimentalProxyHandler",
+          "start": 2187,
+          "end": 2205,
+          "complexity": 3
+        },
+        {
+          "name": "2207:WhoamiHandler",
+          "start": 2207,
+          "end": 2259,
+          "complexity": 11
+        },
+        {
+          "name": "2261:SignoutHandler",
+          "start": 2261,
+          "end": 2292,
+          "complexity": 5
+        },
+        {
+          "name": "2294:PsHandler",
+          "start": 2294,
+          "end": 2326,
+          "complexity": 2
+        },
+        {
+          "name": "toolCallId",
+          "start": 2328,
+          "end": 2335,
+          "complexity": 2
+        },
+        {
+          "name": "preservedTokensForCompletion",
+          "start": 2337,
+          "end": 2342,
+          "complexity": 2
+        },
+        {
+          "name": "toolCallTagForCompletion",
+          "start": 2344,
+          "end": 2349,
+          "complexity": 2
+        },
+        {
+          "name": "leadingBOSForModel",
+          "start": 2351,
+          "end": 2357,
+          "complexity": 3
+        },
+        {
+          "name": "optionsForPrompt",
+          "start": 2359,
+          "end": 2371,
+          "complexity": 5
+        },
+        {
+          "name": "chatModeForModel",
+          "start": 2380,
+          "end": 2386,
+          "complexity": 3
+        },
+        {
+          "name": "llamaServerConfigForModel",
+          "start": 2388,
+          "end": 2395,
+          "complexity": 1
+        },
+        {
+          "name": "usesOllamaRenderedChat",
+          "start": 2397,
+          "end": 2399,
+          "complexity": 5
+        },
+        {
+          "name": "shouldUseGoTemplate",
+          "start": 2401,
+          "end": 2410,
+          "complexity": 4
+        },
+        {
+          "name": "writeChatResponse",
+          "start": 2412,
+          "end": 2463,
+          "complexity": 11
+        },
+        {
+          "name": "2465:ChatHandler",
+          "start": 2465,
+          "end": 3008,
+          "complexity": 132
+        },
+        {
+          "name": "prepareNativeChatRequest",
+          "start": 3010,
+          "end": 3014,
+          "complexity": 1
+        },
+        {
+          "name": "3016:handleNativeChat",
+          "start": 3016,
+          "end": 3106,
+          "complexity": 12
+        },
+        {
+          "name": "truncateNativeChatMessages",
+          "start": 3108,
+          "end": 3165,
+          "complexity": 18
+        },
+        {
+          "name": "countChatImages",
+          "start": 3167,
+          "end": 3173,
+          "complexity": 2
+        },
+        {
+          "name": "handleScheduleError",
+          "start": 3175,
+          "end": 3188,
+          "complexity": 5
+        },
+        {
+          "name": "filterThinkTags",
+          "start": 3190,
+          "end": 3216,
+          "complexity": 8
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "server/sched.go",
+      "physical_lines": 1800,
+      "code_lines": 1478,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/discover",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/format",
+        "github.com/ollama/ollama/fs/gguf",
+        "github.com/ollama/ollama/llm",
+        "github.com/ollama/ollama/logutil",
+        "github.com/ollama/ollama/ml",
+        "github.com/ollama/ollama/mlxrunner",
+        "github.com/ollama/ollama/types/model"
+      ],
+      "functions": [
+        {
+          "name": "InitScheduler",
+          "start": 91,
+          "end": 106,
+          "complexity": 1
+        },
+        {
+          "name": "schedulerModelKey",
+          "start": 111,
+          "end": 132,
+          "complexity": 7
+        },
+        {
+          "name": "resolveContextShift",
+          "start": 134,
+          "end": 140,
+          "complexity": 2
+        },
+        {
+          "name": "supportsContextShift",
+          "start": 142,
+          "end": 152,
+          "complexity": 4
+        },
+        {
+          "name": "effectiveModelContext",
+          "start": 154,
+          "end": 156,
+          "complexity": 1
+        },
+        {
+          "name": "modelTrainContext",
+          "start": 158,
+          "end": 164,
+          "complexity": 2
+        },
+        {
+          "name": "effectiveContext",
+          "start": 166,
+          "end": 172,
+          "complexity": 3
+        },
+        {
+          "name": "174:getRunner",
+          "start": 174,
+          "end": 216,
+          "complexity": 7
+        },
+        {
+          "name": "219:Run",
+          "start": 219,
+          "end": 228,
+          "complexity": 1
+        },
+        {
+          "name": "230:processPending",
+          "start": 230,
+          "end": 370,
+          "complexity": 25
+        },
+        {
+          "name": "372:processCompleted",
+          "start": 372,
+          "end": 475,
+          "complexity": 15
+        },
+        {
+          "name": "480:useLoadedRunner",
+          "start": 480,
+          "end": 497,
+          "complexity": 3
+        },
+        {
+          "name": "501:load",
+          "start": 501,
+          "end": 760,
+          "complexity": 39
+        },
+        {
+          "name": "762:reduceAutoNumCtxForLoadOOM",
+          "start": 762,
+          "end": 788,
+          "complexity": 7
+        },
+        {
+          "name": "explicitPartialGPUOffload",
+          "start": 790,
+          "end": 796,
+          "complexity": 3
+        },
+        {
+          "name": "effectiveLlamaServerContext",
+          "start": 798,
+          "end": 800,
+          "complexity": 1
+        },
+        {
+          "name": "812:applyAutomaticGenerationBatch",
+          "start": 812,
+          "end": 818,
+          "complexity": 3
+        },
+        {
+          "name": "generationBatchSurchargeForCompletion",
+          "start": 820,
+          "end": 825,
+          "complexity": 2
+        },
+        {
+          "name": "automaticGenerationBatch",
+          "start": 827,
+          "end": 840,
+          "complexity": 6
+        },
+        {
+          "name": "hasCUDADevice",
+          "start": 842,
+          "end": 846,
+          "complexity": 1
+        },
+        {
+          "name": "constrainedCUDAWithoutFlashAttention",
+          "start": 848,
+          "end": 862,
+          "complexity": 7
+        },
+        {
+          "name": "generationBatchForContext",
+          "start": 864,
+          "end": 873,
+          "complexity": 3
+        },
+        {
+          "name": "generationBatchFits",
+          "start": 875,
+          "end": 889,
+          "complexity": 5
+        },
+        {
+          "name": "generationBatchHasHeadroom",
+          "start": 891,
+          "end": 900,
+          "complexity": 3
+        },
+        {
+          "name": "nextLowerGenerationBatch",
+          "start": 902,
+          "end": 909,
+          "complexity": 2
+        },
+        {
+          "name": "generationBatchSurcharge",
+          "start": 911,
+          "end": 920,
+          "complexity": 3
+        },
+        {
+          "name": "nextLowerAutoNumCtx",
+          "start": 922,
+          "end": 931,
+          "complexity": 3
+        },
+        {
+          "name": "availableMemoryForLoad",
+          "start": 933,
+          "end": 955,
+          "complexity": 6
+        },
+        {
+          "name": "availableMemoryForPlacement",
+          "start": 957,
+          "end": 967,
+          "complexity": 3
+        },
+        {
+          "name": "gpusForPlacement",
+          "start": 969,
+          "end": 975,
+          "complexity": 4
+        },
+        {
+          "name": "selectLlamaServerPlacement",
+          "start": 977,
+          "end": 1036,
+          "complexity": 9
+        },
+        {
+          "name": "singleLlamaServerGPUPlacement",
+          "start": 1038,
+          "end": 1042,
+          "complexity": 1
+        },
+        {
+          "name": "bestExplicitMainGPU",
+          "start": 1044,
+          "end": 1063,
+          "complexity": 6
+        },
+        {
+          "name": "bestSingleGPUFit",
+          "start": 1065,
+          "end": 1081,
+          "complexity": 6
+        },
+        {
+          "name": "betterPlacementGPU",
+          "start": 1083,
+          "end": 1089,
+          "complexity": 2
+        },
+        {
+          "name": "bestGPUGroupByAvailableMemory",
+          "start": 1091,
+          "end": 1103,
+          "complexity": 4
+        },
+        {
+          "name": "betterPlacementGroup",
+          "start": 1105,
+          "end": 1113,
+          "complexity": 2
+        },
+        {
+          "name": "hasDiscreteGPU",
+          "start": 1115,
+          "end": 1122,
+          "complexity": 3
+        },
+        {
+          "name": "availableMemoryForGPU",
+          "start": 1124,
+          "end": 1130,
+          "complexity": 4
+        },
+        {
+          "name": "logSelectedGPUGroup",
+          "start": 1132,
+          "end": 1141,
+          "complexity": 3
+        },
+        {
+          "name": "1143:applyLlamaServerMmapDefaults",
+          "start": 1143,
+          "end": 1161,
+          "complexity": 2
+        },
+        {
+          "name": "disableMmapDefaultReason",
+          "start": 1163,
+          "end": 1182,
+          "complexity": 15
+        },
+        {
+          "name": "hasDeviceLibrary",
+          "start": 1184,
+          "end": 1191,
+          "complexity": 3
+        },
+        {
+          "name": "allDevicesLibrary",
+          "start": 1193,
+          "end": 1203,
+          "complexity": 4
+        },
+        {
+          "name": "1205:maybeDisableMmapForHostPressure",
+          "start": 1205,
+          "end": 1230,
+          "complexity": 2
+        },
+        {
+          "name": "disableMmapForHostPressure",
+          "start": 1232,
+          "end": 1246,
+          "complexity": 9
+        },
+        {
+          "name": "allDiscreteGPUs",
+          "start": 1248,
+          "end": 1258,
+          "complexity": 4
+        },
+        {
+          "name": "mmapHostPressureHeadroom",
+          "start": 1260,
+          "end": 1265,
+          "complexity": 2
+        },
+        {
+          "name": "modelFileSize",
+          "start": 1267,
+          "end": 1280,
+          "complexity": 6
+        },
+        {
+          "name": "1282:loadedMmapModelSizeLocked",
+          "start": 1282,
+          "end": 1295,
+          "complexity": 4
+        },
+        {
+          "name": "runnerUsesMmap",
+          "start": 1297,
+          "end": 1302,
+          "complexity": 4
+        },
+        {
+          "name": "1304:updateFreeSpace",
+          "start": 1304,
+          "end": 1344,
+          "complexity": 10
+        },
+        {
+          "name": "1376:unload",
+          "start": 1376,
+          "end": 1388,
+          "complexity": 3
+        },
+        {
+          "name": "1390:needsReload",
+          "start": 1390,
+          "end": 1440,
+          "complexity": 17
+        },
+        {
+          "name": "1450:waitForVRAMRecovery",
+          "start": 1450,
+          "end": 1508,
+          "complexity": 12
+        },
+        {
+          "name": "1513:LogValue",
+          "start": 1513,
+          "end": 1544,
+          "complexity": 7
+        },
+        {
+          "name": "1547:GetPort",
+          "start": 1547,
+          "end": 1552,
+          "complexity": 2
+        },
+        {
+          "name": "1554:GetDeviceInfos",
+          "start": 1554,
+          "end": 1559,
+          "complexity": 2
+        },
+        {
+          "name": "1561:GetActiveDeviceIDs",
+          "start": 1561,
+          "end": 1563,
+          "complexity": 1
+        },
+        {
+          "name": "1565:HasExited",
+          "start": 1565,
+          "end": 1570,
+          "complexity": 2
+        },
+        {
+          "name": "1574:Len",
+          "start": 1574,
+          "end": 1574,
+          "complexity": 1
+        },
+        {
+          "name": "1575:Swap",
+          "start": 1575,
+          "end": 1575,
+          "complexity": 1
+        },
+        {
+          "name": "1576:Less",
+          "start": 1576,
+          "end": 1593,
+          "complexity": 4
+        },
+        {
+          "name": "1605:evictAllAndWait",
+          "start": 1605,
+          "end": 1645,
+          "complexity": 10
+        },
+        {
+          "name": "1647:expireRunnersForRuntimeOOM",
+          "start": 1647,
+          "end": 1676,
+          "complexity": 7
+        },
+        {
+          "name": "1679:findRunnerToUnload",
+          "start": 1679,
+          "end": 1708,
+          "complexity": 5
+        },
+        {
+          "name": "1710:unloadAllRunners",
+          "start": 1710,
+          "end": 1726,
+          "complexity": 4
+        },
+        {
+          "name": "1728:expireRunner",
+          "start": 1728,
+          "end": 1746,
+          "complexity": 4
+        },
+        {
+          "name": "1760:loadedModels",
+          "start": 1760,
+          "end": 1800,
+          "complexity": 6
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "llm/server.go",
+      "physical_lines": 286,
+      "code_lines": 228,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/format",
+        "github.com/ollama/ollama/fs/gguf",
+        "github.com/ollama/ollama/ml"
+      ],
+      "functions": [
+        {
+          "name": "23:LogValue",
+          "start": 23,
+          "end": 33,
+          "complexity": 4
+        },
+        {
+          "name": "filteredEnvLogKey",
+          "start": 35,
+          "end": 47,
+          "complexity": 7
+        },
+        {
+          "name": "filteredEnvLogValue",
+          "start": 49,
+          "end": 56,
+          "complexity": 3
+        },
+        {
+          "name": "LoadModel",
+          "start": 93,
+          "end": 95,
+          "complexity": 1
+        },
+        {
+          "name": "NewLlamaServer",
+          "start": 99,
+          "end": 111,
+          "complexity": 3
+        },
+        {
+          "name": "126:String",
+          "start": 126,
+          "end": 141,
+          "complexity": 6
+        },
+        {
+          "name": "MessageFromAPI",
+          "start": 180,
+          "end": 195,
+          "complexity": 2
+        },
+        {
+          "name": "251:String",
+          "start": 251,
+          "end": 260,
+          "complexity": 3
+        }
+      ],
+      "interfaces": [
+        {
+          "name": "LlamaServer",
+          "start": 58,
+          "methods": [
+            "ModelPath",
+            "Load",
+            "Ping",
+            "WaitUntilRunning",
+            "Completion",
+            "Chat",
+            "ApplyChatTemplate",
+            "Embedding",
+            "Tokenize",
+            "Detokenize",
+            "Close",
+            "MemorySize",
+            "VRAMByGPU",
+            "Pid",
+            "GetPort",
+            "GetDeviceInfos",
+            "HasExited",
+            "ContextLength"
+          ],
+          "embedded": []
+        }
+      ]
+    },
+    {
+      "path": "middleware/openai.go",
+      "physical_lines": 1359,
+      "code_lines": 1147,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/openai"
+      ],
+      "functions": [
+        {
+          "name": "65:writeError",
+          "start": 65,
+          "end": 79,
+          "complexity": 3
+        },
+        {
+          "name": "81:writeResponse",
+          "start": 81,
+          "end": 175,
+          "complexity": 26
+        },
+        {
+          "name": "177:Write",
+          "start": 177,
+          "end": 184,
+          "complexity": 2
+        },
+        {
+          "name": "186:writeResponse",
+          "start": 186,
+          "end": 241,
+          "complexity": 14
+        },
+        {
+          "name": "243:Write",
+          "start": 243,
+          "end": 250,
+          "complexity": 2
+        },
+        {
+          "name": "252:writeResponse",
+          "start": 252,
+          "end": 266,
+          "complexity": 3
+        },
+        {
+          "name": "268:Write",
+          "start": 268,
+          "end": 275,
+          "complexity": 2
+        },
+        {
+          "name": "277:writeResponse",
+          "start": 277,
+          "end": 292,
+          "complexity": 3
+        },
+        {
+          "name": "294:Write",
+          "start": 294,
+          "end": 301,
+          "complexity": 2
+        },
+        {
+          "name": "303:writeResponse",
+          "start": 303,
+          "end": 317,
+          "complexity": 3
+        },
+        {
+          "name": "319:Write",
+          "start": 319,
+          "end": 326,
+          "complexity": 2
+        },
+        {
+          "name": "ListMiddleware",
+          "start": 328,
+          "end": 338,
+          "complexity": 1
+        },
+        {
+          "name": "RetrieveMiddleware",
+          "start": 340,
+          "end": 359,
+          "complexity": 2
+        },
+        {
+          "name": "CompletionsMiddleware",
+          "start": 361,
+          "end": 394,
+          "complexity": 4
+        },
+        {
+          "name": "EmbeddingsMiddleware",
+          "start": 396,
+          "end": 445,
+          "complexity": 10
+        },
+        {
+          "name": "ChatMiddleware",
+          "start": 447,
+          "end": 488,
+          "complexity": 5
+        },
+        {
+          "name": "500:writeEvent",
+          "start": 500,
+          "end": 513,
+          "complexity": 4
+        },
+        {
+          "name": "515:writeResponse",
+          "start": 515,
+          "end": 539,
+          "complexity": 5
+        },
+        {
+          "name": "541:Write",
+          "start": 541,
+          "end": 547,
+          "complexity": 2
+        },
+        {
+          "name": "582:WriteHeader",
+          "start": 582,
+          "end": 584,
+          "complexity": 1
+        },
+        {
+          "name": "586:WriteHeaderNow",
+          "start": 586,
+          "end": 591,
+          "complexity": 2
+        },
+        {
+          "name": "593:Status",
+          "start": 593,
+          "end": 598,
+          "complexity": 2
+        },
+        {
+          "name": "600:Write",
+          "start": 600,
+          "end": 698,
+          "complexity": 31
+        },
+        {
+          "name": "700:finishStream",
+          "start": 700,
+          "end": 736,
+          "complexity": 8
+        },
+        {
+          "name": "738:runAndWrite",
+          "start": 738,
+          "end": 753,
+          "complexity": 4
+        },
+        {
+          "name": "755:runLoop",
+          "start": 755,
+          "end": 913,
+          "complexity": 42
+        },
+        {
+          "name": "915:loopContext",
+          "start": 915,
+          "end": 920,
+          "complexity": 2
+        },
+        {
+          "name": "922:webSearch",
+          "start": 922,
+          "end": 931,
+          "complexity": 3
+        },
+        {
+          "name": "933:callFollowUp",
+          "start": 933,
+          "end": 938,
+          "complexity": 2
+        },
+        {
+          "name": "940:callFollowUpStream",
+          "start": 940,
+          "end": 1014,
+          "complexity": 18
+        },
+        {
+          "name": "formatResponsesWebSearchResults",
+          "start": 1016,
+          "end": 1026,
+          "complexity": 3
+        },
+        {
+          "name": "1028:writeWebSearchResponse",
+          "start": 1028,
+          "end": 1042,
+          "complexity": 2
+        },
+        {
+          "name": "buildResponsesWebSearchOutput",
+          "start": 1047,
+          "end": 1090,
+          "complexity": 5
+        },
+        {
+          "name": "1092:writeWebSearchStream",
+          "start": 1092,
+          "end": 1105,
+          "complexity": 4
+        },
+        {
+          "name": "1107:writeWebSearchError",
+          "start": 1107,
+          "end": 1155,
+          "complexity": 9
+        },
+        {
+          "name": "decodeWebSearchResponseError",
+          "start": 1157,
+          "end": 1169,
+          "complexity": 3
+        },
+        {
+          "name": "ResponsesMiddleware",
+          "start": 1171,
+          "end": 1249,
+          "complexity": 9
+        },
+        {
+          "name": "1258:Write",
+          "start": 1258,
+          "end": 1291,
+          "complexity": 7
+        },
+        {
+          "name": "TranscriptionMiddleware",
+          "start": 1295,
+          "end": 1359,
+          "complexity": 8
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "manifest/layer.go",
+      "physical_lines": 148,
+      "code_lines": 123,
+      "internal_imports": [],
+      "functions": [
+        {
+          "name": "NewLayer",
+          "start": 26,
+          "end": 75,
+          "complexity": 10
+        },
+        {
+          "name": "NewLayerFromLayer",
+          "start": 77,
+          "end": 102,
+          "complexity": 5
+        },
+        {
+          "name": "touchLayer",
+          "start": 104,
+          "end": 107,
+          "complexity": 1
+        },
+        {
+          "name": "109:Open",
+          "start": 109,
+          "end": 120,
+          "complexity": 3
+        },
+        {
+          "name": "122:Remove",
+          "start": 122,
+          "end": 148,
+          "complexity": 7
+        }
+      ],
+      "interfaces": []
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "tool": "gocyclo v0.6.0",
+  "functions_compared": 181,
+  "exact_matches": 181,
+  "status": "PASS"
+}

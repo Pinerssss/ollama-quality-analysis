@@ -1,0 +1,57 @@
+{
+  "TOTAL": {
+    "covered": 1911,
+    "statements": 2431,
+    "percent": 78.6096
+  },
+  "github.com/ollama/ollama/middleware": {
+    "covered": 807,
+    "statements": 1067,
+    "percent": 75.6326
+  },
+  "github.com/ollama/ollama/middleware/anthropic.go": {
+    "covered": 273,
+    "statements": 324,
+    "percent": 84.2593
+  },
+  "github.com/ollama/ollama/middleware/metrics.go": {
+    "covered": 11,
+    "statements": 11,
+    "percent": 100.0
+  },
+  "github.com/ollama/ollama/middleware/openai.go": {
+    "covered": 480,
+    "statements": 687,
+    "percent": 69.869
+  },
+  "github.com/ollama/ollama/middleware/thinking.go": {
+    "covered": 3,
+    "statements": 3,
+    "percent": 100.0
+  },
+  "github.com/ollama/ollama/middleware/web_search.go": {
+    "covered": 40,
+    "statements": 42,
+    "percent": 95.2381
+  },
+  "github.com/ollama/ollama/openai": {
+    "covered": 1104,
+    "statements": 1364,
+    "percent": 80.9384
+  },
+  "github.com/ollama/ollama/openai/openai.go": {
+    "covered": 187,
+    "statements": 273,
+    "percent": 68.4982
+  },
+  "github.com/ollama/ollama/openai/responses.go": {
+    "covered": 514,
+    "statements": 609,
+    "percent": 84.4007
+  },
+  "github.com/ollama/ollama/openai/responses_compact.go": {
+    "covered": 403,
+    "statements": 482,
+    "percent": 83.61
+  }
+}

@@ -1,0 +1,455 @@
+{
+  "version": "1.0.0",
+  "files": [
+    {
+      "path": "server/routes.go",
+      "physical_lines": 1730,
+      "code_lines": 1415,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/auth",
+        "github.com/ollama/ollama/discover",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/format",
+        "github.com/ollama/ollama/fs/gguf",
+        "github.com/ollama/ollama/internal/cloud",
+        "github.com/ollama/ollama/internal/proxy",
+        "github.com/ollama/ollama/llm",
+        "github.com/ollama/ollama/logutil",
+        "github.com/ollama/ollama/manifest",
+        "github.com/ollama/ollama/middleware",
+        "github.com/ollama/ollama/model/parsers",
+        "github.com/ollama/ollama/model/renderers",
+        "github.com/ollama/ollama/thinking",
+        "github.com/ollama/ollama/tools",
+        "github.com/ollama/ollama/types/errtypes",
+        "github.com/ollama/ollama/types/model",
+        "github.com/ollama/ollama/version"
+      ],
+      "functions": [
+        {
+          "name": "writeModelRefParseError",
+          "start": 61,
+          "end": 70,
+          "complexity": 3
+        },
+        {
+          "name": "shouldUseHarmony",
+          "start": 72,
+          "end": 82,
+          "complexity": 4
+        },
+        {
+          "name": "experimentEnabled",
+          "start": 84,
+          "end": 86,
+          "complexity": 1
+        },
+        {
+          "name": "init",
+          "start": 100,
+          "end": 113,
+          "complexity": 4
+        },
+        {
+          "name": "120:modelOptions",
+          "start": 120,
+          "end": 122,
+          "complexity": 1
+        },
+        {
+          "name": "124:modelOptionsWithEmbeddingBatchDefault",
+          "start": 124,
+          "end": 157,
+          "complexity": 11
+        },
+        {
+          "name": "shouldApplyEmbeddingBatchDefault",
+          "start": 159,
+          "end": 167,
+          "complexity": 6
+        },
+        {
+          "name": "hasOption",
+          "start": 169,
+          "end": 172,
+          "complexity": 1
+        },
+        {
+          "name": "usesAutomaticNumCtx",
+          "start": 174,
+          "end": 184,
+          "complexity": 4
+        },
+        {
+          "name": "usesAutomaticNumBatch",
+          "start": 186,
+          "end": 196,
+          "complexity": 4
+        },
+        {
+          "name": "200:scheduleRunner",
+          "start": 200,
+          "end": 235,
+          "complexity": 11
+        },
+        {
+          "name": "signinURL",
+          "start": 237,
+          "end": 246,
+          "complexity": 2
+        },
+        {
+          "name": "248:EmbedHandler",
+          "start": 248,
+          "end": 471,
+          "complexity": 49
+        },
+        {
+          "name": "normalize",
+          "start": 473,
+          "end": 487,
+          "complexity": 5
+        },
+        {
+          "name": "489:EmbeddingsHandler",
+          "start": 489,
+          "end": 547,
+          "complexity": 10
+        },
+        {
+          "name": "549:PullHandler",
+          "start": 549,
+          "end": 606,
+          "complexity": 8
+        },
+        {
+          "name": "608:PushHandler",
+          "start": 608,
+          "end": 661,
+          "complexity": 9
+        },
+        {
+          "name": "getExistingName",
+          "start": 667,
+          "end": 690,
+          "complexity": 11
+        },
+        {
+          "name": "692:DeleteHandler",
+          "start": 692,
+          "end": 743,
+          "complexity": 11
+        },
+        {
+          "name": "745:ShowHandler",
+          "start": 745,
+          "end": 839,
+          "complexity": 25
+        },
+        {
+          "name": "GetModelInfo",
+          "start": 841,
+          "end": 1052,
+          "complexity": 50
+        },
+        {
+          "name": "getModelData",
+          "start": 1054,
+          "end": 1069,
+          "complexity": 4
+        },
+        {
+          "name": "selectedModelTemplate",
+          "start": 1071,
+          "end": 1078,
+          "complexity": 4
+        },
+        {
+          "name": "1080:ListHandler",
+          "start": 1080,
+          "end": 1088,
+          "complexity": 2
+        },
+        {
+          "name": "1090:CopyHandler",
+          "start": 1090,
+          "end": 1127,
+          "complexity": 9
+        },
+        {
+          "name": "1129:GenerateRoutes",
+          "start": 1129,
+          "end": 1226,
+          "complexity": 2
+        },
+        {
+          "name": "1228:ModelRecommendationsExperimentalHandler",
+          "start": 1228,
+          "end": 1244,
+          "complexity": 4
+        },
+        {
+          "name": "Serve",
+          "start": 1246,
+          "end": 1368,
+          "complexity": 16
+        },
+        {
+          "name": "waitForStream",
+          "start": 1370,
+          "end": 1395,
+          "complexity": 6
+        },
+        {
+          "name": "streamResponse",
+          "start": 1397,
+          "end": 1444,
+          "complexity": 9
+        },
+        {
+          "name": "1446:StatusHandler",
+          "start": 1446,
+          "end": 1454,
+          "complexity": 1
+        },
+        {
+          "name": "1456:WebSearchExperimentalHandler",
+          "start": 1456,
+          "end": 1458,
+          "complexity": 1
+        },
+        {
+          "name": "1460:WebFetchExperimentalHandler",
+          "start": 1460,
+          "end": 1462,
+          "complexity": 1
+        },
+        {
+          "name": "1464:webExperimentalProxyHandler",
+          "start": 1464,
+          "end": 1482,
+          "complexity": 3
+        },
+        {
+          "name": "1484:WhoamiHandler",
+          "start": 1484,
+          "end": 1536,
+          "complexity": 11
+        },
+        {
+          "name": "1538:SignoutHandler",
+          "start": 1538,
+          "end": 1569,
+          "complexity": 5
+        },
+        {
+          "name": "1571:PsHandler",
+          "start": 1571,
+          "end": 1603,
+          "complexity": 2
+        },
+        {
+          "name": "toolCallId",
+          "start": 1605,
+          "end": 1612,
+          "complexity": 2
+        },
+        {
+          "name": "preservedTokensForCompletion",
+          "start": 1614,
+          "end": 1619,
+          "complexity": 2
+        },
+        {
+          "name": "toolCallTagForCompletion",
+          "start": 1621,
+          "end": 1626,
+          "complexity": 2
+        },
+        {
+          "name": "leadingBOSForModel",
+          "start": 1628,
+          "end": 1634,
+          "complexity": 3
+        },
+        {
+          "name": "optionsForPrompt",
+          "start": 1636,
+          "end": 1648,
+          "complexity": 5
+        },
+        {
+          "name": "chatModeForModel",
+          "start": 1657,
+          "end": 1663,
+          "complexity": 3
+        },
+        {
+          "name": "llamaServerConfigForModel",
+          "start": 1665,
+          "end": 1672,
+          "complexity": 1
+        },
+        {
+          "name": "usesOllamaRenderedChat",
+          "start": 1674,
+          "end": 1676,
+          "complexity": 5
+        },
+        {
+          "name": "shouldUseGoTemplate",
+          "start": 1678,
+          "end": 1687,
+          "complexity": 4
+        },
+        {
+          "name": "handleScheduleError",
+          "start": 1689,
+          "end": 1702,
+          "complexity": 5
+        },
+        {
+          "name": "filterThinkTags",
+          "start": 1704,
+          "end": 1730,
+          "complexity": 8
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "server/routes_generate.go",
+      "physical_lines": 609,
+      "code_lines": 517,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/internal/cloud",
+        "github.com/ollama/ollama/llm",
+        "github.com/ollama/ollama/model/parsers",
+        "github.com/ollama/ollama/model/renderers",
+        "github.com/ollama/ollama/template",
+        "github.com/ollama/ollama/thinking",
+        "github.com/ollama/ollama/types/errtypes",
+        "github.com/ollama/ollama/types/model"
+      ],
+      "functions": [
+        {
+          "name": "30:GenerateHandler",
+          "start": 30,
+          "end": 609,
+          "complexity": 139
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "server/routes_chat.go",
+      "physical_lines": 791,
+      "code_lines": 667,
+      "internal_imports": [
+        "github.com/ollama/ollama/api",
+        "github.com/ollama/ollama/envconfig",
+        "github.com/ollama/ollama/internal/cloud",
+        "github.com/ollama/ollama/llm",
+        "github.com/ollama/ollama/logutil",
+        "github.com/ollama/ollama/model/parsers",
+        "github.com/ollama/ollama/model/renderers",
+        "github.com/ollama/ollama/thinking",
+        "github.com/ollama/ollama/tools",
+        "github.com/ollama/ollama/types/errtypes",
+        "github.com/ollama/ollama/types/model"
+      ],
+      "functions": [
+        {
+          "name": "writeChatResponse",
+          "start": 30,
+          "end": 81,
+          "complexity": 11
+        },
+        {
+          "name": "83:ChatHandler",
+          "start": 83,
+          "end": 626,
+          "complexity": 132
+        },
+        {
+          "name": "prepareNativeChatRequest",
+          "start": 628,
+          "end": 632,
+          "complexity": 1
+        },
+        {
+          "name": "634:handleNativeChat",
+          "start": 634,
+          "end": 724,
+          "complexity": 12
+        },
+        {
+          "name": "truncateNativeChatMessages",
+          "start": 726,
+          "end": 783,
+          "complexity": 18
+        },
+        {
+          "name": "countChatImages",
+          "start": 785,
+          "end": 791,
+          "complexity": 2
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "server/routes_blob.go",
+      "physical_lines": 61,
+      "code_lines": 51,
+      "internal_imports": [
+        "github.com/ollama/ollama/manifest"
+      ],
+      "functions": [
+        {
+          "name": "12:HeadBlobHandler",
+          "start": 12,
+          "end": 28,
+          "complexity": 4
+        },
+        {
+          "name": "30:CreateBlobHandler",
+          "start": 30,
+          "end": 61,
+          "complexity": 6
+        }
+      ],
+      "interfaces": []
+    },
+    {
+      "path": "server/routes_host.go",
+      "physical_lines": 96,
+      "code_lines": 78,
+      "internal_imports": [],
+      "functions": [
+        {
+          "name": "isLocalIP",
+          "start": 12,
+          "end": 31,
+          "complexity": 7
+        },
+        {
+          "name": "allowedHost",
+          "start": 33,
+          "end": 58,
+          "complexity": 7
+        },
+        {
+          "name": "allowedHostsMiddleware",
+          "start": 60,
+          "end": 96,
+          "complexity": 12
+        }
+      ],
+      "interfaces": []
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "baseline_commit": "6383a0fa9cbf97494b847226e189f6e36b401a08",
+  "go_version": "go version go1.26.1 linux/amd64",
+  "baseline_full_server_exit": 1,
+  "after_full_server_exit": 1,
+  "note": "Full-server failures are retained, never silently excluded. Inspect both logs."
+}

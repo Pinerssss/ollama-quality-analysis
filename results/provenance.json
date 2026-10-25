@@ -1,0 +1,15 @@
+{
+  "baseline_commit": "6383a0fa9cbf97494b847226e189f6e36b401a08",
+  "baseline_commit_date": "2026-09-18T17:15:35-07:00",
+  "measurement_date": "2026-10-18",
+  "go_version": "go version go1.26.1 linux/amd64",
+  "script_version": "1.0.0",
+  "scope": "five purposively selected production Go files; dynamic tests for ./middleware and ./openai only",
+  "prototype": "local demonstration, not merged upstream",
+  "validation_limit": "middleware/openai tests, targeted server tests, helper tests and server compilation pass; full server run has the same three redirect-policy subcase failures on baseline and prototype; GPU inference/tagged integration tests not executed",
+  "python_version": "Python 3.12.14",
+  "patch_sha256": "ca658671733f439f003ca180e4d82880dc76f57722f05201b655992cbc84bef4",
+  "host_platform": "Linux amd64",
+  "GOTOOLCHAIN": "local",
+  "command_path_format": "Portable command record: <project> is the project root, <results> is the run output directory; tool executables resolve from PATH."
+}
