@@ -1,0 +1,126 @@
+diff --git a/middleware/capstone_chat_validation_test.go b/middleware/capstone_chat_validation_test.go
+new file mode 100644
+index 0000000..81d5d4b
+--- /dev/null
++++ b/middleware/capstone_chat_validation_test.go
+@@ -0,0 +1,52 @@
++package middleware
++
++import (
++	"encoding/json"
++	"net/http"
++	"net/http/httptest"
++	"strings"
++	"testing"
++
++	"github.com/gin-gonic/gin"
++	"github.com/ollama/ollama/openai"
++)
++
++// Verify the client-visible error and that rejected input never reaches inference.
++func TestCapstoneChatValidation(t *testing.T) {
++	gin.SetMode(gin.TestMode)
++	for _, tc := range []struct{ name, body, message string }{
++		{"malformed JSON", `{"model":`, "unexpected EOF"},
++		{"missing messages", `{"model":"test-model"}`, "[] is too short - 'messages'"},
++		{"empty messages", `{"model":"test-model","messages":[]}`, "[] is too short - 'messages'"},
++		{"unsupported content", `{"model":"test-model","messages":[{"role":"user","content":2}]}`, "invalid message content type: float64"},
++	} {
++		t.Run(tc.name, func(t *testing.T) {
++			called := false
++			r := gin.New()
++			r.POST("/v1/chat/completions", ChatMiddleware(), func(c *gin.Context) {
++				called = true
++				c.Status(http.StatusOK)
++			})
++			req := httptest.NewRequest(http.MethodPost, "/v1/chat/completions", strings.NewReader(tc.body))
++			req.Header.Set("Content-Type", "application/json")
++			resp := httptest.NewRecorder()
++			r.ServeHTTP(resp, req)
++			if resp.Code != http.StatusBadRequest {
++				t.Fatalf("status = %d, want 400; body=%s", resp.Code, resp.Body.String())
++			}
++			if called {
++				t.Fatal("invalid request reached downstream handler")
++			}
++			var got openai.ErrorResponse
++			if err := json.Unmarshal(resp.Body.Bytes(), &got); err != nil {
++				t.Fatal(err)
++			}
++			if got.Error.Type != "invalid_request_error" {
++				t.Fatalf("type = %q", got.Error.Type)
++			}
++			if got.Error.Message != tc.message {
++				t.Fatalf("message = %q, want %q", got.Error.Message, tc.message)
++			}
++		})
++	}
++}
+diff --git a/middleware/openai_test.go b/middleware/openai_test.go
+index 92b2b41..7d77ae8 100644
+--- a/middleware/openai_test.go
++++ b/middleware/openai_test.go
+@@ -1334,8 +1334,17 @@ func TestChatMiddleware(t *testing.T) {
+ 				if err := json.Unmarshal(resp.Body.Bytes(), &errResp); err != nil {
+ 					t.Fatal(err)
+ 				}
++				if resp.Code != http.StatusBadRequest {
++					t.Fatalf("status = %d, want 400", resp.Code)
++				}
++				if diff := cmp.Diff(tc.err, errResp); diff != "" {
++					t.Fatalf("errors did not match for %s:\n%s", tc.name, diff)
++				}
+ 				return
+ 			}
++			if tc.err.Error.Message != "" {
++				t.Fatalf("expected error %q, got status 200", tc.err.Error.Message)
++			}
+ 			if diff := cmp.Diff(&tc.req, capturedRequest, argsComparer, propsComparer); diff != "" {
+ 				t.Fatalf("requests did not match: %+v", diff)
+ 			}
+diff --git a/server/routes.go b/server/routes.go
+index 0c669e9..58a92f4 100644
+--- a/server/routes.go
++++ b/server/routes.go
+@@ -2356,7 +2356,11 @@ func leadingBOSForModel(m *Model) string {
+ 	return renderers.LeadingBOSForRenderer(resolveRendererName(m))
+ }
+ 
+-func optionsForPrompt(opts *api.Options, runner llm.LlamaServer) *api.Options {
++type contextLengthProvider interface {
++	ContextLength() int
++}
++
++func optionsForPrompt(opts *api.Options, runner contextLengthProvider) *api.Options {
+ 	if opts == nil || runner == nil {
+ 		return opts
+ 	}
+diff --git a/server/routes_generate_test.go b/server/routes_generate_test.go
+index 0bbf9b5..b5c0aad 100644
+--- a/server/routes_generate_test.go
++++ b/server/routes_generate_test.go
+@@ -135,10 +135,14 @@ func TestLlamaServerConfigForModelSplitPaths(t *testing.T) {
+ 	}
+ }
+ 
++type contextLengthStub struct{ length int }
++
++func (r contextLengthStub) ContextLength() int { return r.length }
++
+ func TestOptionsForPromptUsesEffectiveContextLength(t *testing.T) {
+ 	opts := &api.Options{Runner: api.Runner{NumCtx: 4096}}
+ 
+-	got := optionsForPrompt(opts, &mockRunner{contextLength: 2048})
++	got := optionsForPrompt(opts, contextLengthStub{length: 2048})
+ 	if got == opts {
+ 		t.Fatal("expected copied options")
+ 	}
+@@ -153,7 +157,7 @@ func TestOptionsForPromptUsesEffectiveContextLength(t *testing.T) {
+ func TestOptionsForPromptLeavesLargerRunnerContext(t *testing.T) {
+ 	opts := &api.Options{Runner: api.Runner{NumCtx: 2048}}
+ 
+-	got := optionsForPrompt(opts, &mockRunner{contextLength: 4096})
++	got := optionsForPrompt(opts, contextLengthStub{length: 4096})
+ 	if got != opts {
+ 		t.Fatal("expected original options when runner context is larger")
+ 	}
